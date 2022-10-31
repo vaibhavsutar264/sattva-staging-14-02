@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Avenir Next' !important;
+  src: url(../font/avenir/AvenirNext-Regular.woff2) format('woff2'),
+    url(../font/avenir/AvenirNext-Regular.woff) format('woff');
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+#joinRoomByPin {
+  background: #d0ad73 !important;
+}
+
+#meeting-title {
+  color: #121212 !important;
+}
+
+#enxScreen {
+  font-family: 'Avenir Next' !important;
+  border-color: transparent;
+}
+
+#controls-toolbar {
+  left: 50% !important;
+  bottom: 10% !important;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+  #meeting-title {
+    font-size: 13px !important;
+  }
+
+  #controls-toolbar {
+    left: 50% !important;
+    bottom: 10% !important;
+    transform: translate(-50%, -50%);
+  }
+}

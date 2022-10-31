@@ -1,0 +1,1268 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: LuloCleanW01-OneBold;
+  src: url(../fonts/roadtodharma/LuloCleanW01-OneBold.woff2) format('woff2'),
+    url(../fonts/roadtodharma/LuloCleanW01-OneBold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica-Oblique.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica-Oblique.woff) format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica-BoldOblique.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica-BoldOblique.woff) format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica-Bold.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica-Light.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica-Light.woff) format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/Helvetica-Compressed.woff2) format('woff2'),
+    url(../fonts/roadtodharma/Helvetica-Compressed.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/roadtodharma/HelveticaRounded-Bold.woff2) format('woff2'),
+    url(../fonts/roadtodharma/HelveticaRounded-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DINNextW01';
+  src: url('../fonts/roadtodharma/DINNextW01-Light.woff2') format('woff2'),
+    url('../fonts/roadtodharma/DINNextW01-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url(../fonts/avenir/AvenirNext-Regular.woff2) format('woff2'),
+    url(../fonts/avenir/AvenirNext-Regular.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir Next Demi';
+  src: url(../fonts/avenir/AvenirNext-DemiBold.woff2) format('woff2'),
+    url(../fonts/avenir/AvenirNext-DemiBold.woff) format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url(../fonts/avenir/AvenirNext-Medium.woff2) format('woff2'),
+    url(../fonts/avenir/AvenirNext-Medium.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+.roadDharmaPage * {
+  font-family: 'Lato', sans-serif;
+  color: #000;
+  font-weight: 400;
+}
+.roadDharmaPage h1,
+.roadDharmaPage h2,
+.roadDharmaPage h3,
+.roadDharmaPage h4,
+.roadDharmaPage h5,
+.roadDharmaPage h6 {
+  letter-spacing: 0 !important;
+  text-transform: initial;
+}
+.roadDharmaPage header {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  z-index: 9;
+}
+.roadDharmaPage header ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 90px;
+}
+.roadDharmaPage header li {
+  position: relative;
+  margin-left: 35px;
+}
+.roadDharmaPage header li:first-child {
+  margin-left: 0;
+}
+.roadDharmaPage header li::after {
+  content: '';
+  width: 1px;
+  height: 18px;
+  background: #fff;
+  display: block;
+  position: absolute;
+  top: 7px;
+  left: -18px;
+}
+.roadDharmaPage header li:first-child::after {
+  display: none;
+}
+.roadDharmaPage header li a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+}
+.roadDharmaPage .textTheme {
+  color: #78154f !important;
+}
+.secBanner {
+  background: url(../images/roadtodharma/modalBg.jpg) no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  height: 660px;
+  padding: 50px 0;
+}
+.bannerDetails {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: -5px;
+}
+.bannerDetails h4 {
+  font-size: 23px;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #fff;
+}
+.bannerDetails h2 {
+  font-size: 35px;
+  letter-spacing: 0;
+  font-weight: 600;
+  width: 57%;
+  margin: auto;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.bannerDetails p {
+  font-size: 14px;
+  letter-spacing: 0;
+  font-weight: 100;
+  font-style: italic;
+  color: #fff;
+}
+.secForm {
+  position: relative;
+}
+.secForm .container {
+  position: relative;
+}
+.secFormBox {
+  background: #5c0744;
+  padding: 35px 30px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(88, 85, 81, 1);
+  background-image: url(../images/roadtodharma/apple_box.png);
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -175px;
+  width: 865px;
+}
+.formLeft {
+  border: 2px solid rgba(0, 0, 0, 0.63);
+  display: flex;
+}
+/* .formLeft iframe{width: 100%;height: 100%;;} */
+.formRight {
+  width: calc(100% - 56%);
+  padding-left: 50px;
+}
+.formRight h5 {
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 20px;
+  font-family: Helvetica;
+  letter-spacing: 0;
+}
+.formRight form {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+.formRight .form-group {
+  width: 100%;
+}
+.formRight .form-group .form-control {
+  color: #fff;
+}
+.formRight .form-group .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+.formRight .form-group .form-control:-ms-input-placeholder {
+  color: #fff;
+}
+.formRight .form-group .form-control::placeholder {
+  color: #fff;
+}
+.roadDharmaPage .form-group .form-control {
+  border-radius: 1px 1px 1px 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-width: 2px;
+  background-color: rgba(181, 177, 169, 0.22);
+  box-sizing: border-box !important;
+  border-style: solid;
+  border-color: rgba(120, 21, 79, 1);
+  padding: 3px;
+  margin: 0;
+  max-width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  padding-left: 15px;
+}
+.form-control::-webkit-input-placeholder {
+  color: #222;
+}
+.form-control:-ms-input-placeholder {
+  color: #222;
+}
+.form-control::placeholder {
+  color: #222;
+}
+.formBtn {
+  background-color: rgba(120, 21, 79, 0.78);
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0;
+  font-weight: 300;
+  padding: 0;
+  width: 54px;
+}
+.secInfo {
+  background: url(../images/roadtodharma/onlineBg.jpg) no-repeat;
+  background-color: rgb(255 255 255 / 0.9);
+  background-size: cover;
+  background-blend-mode: color;
+  padding: 205px 55px 50px;
+}
+.secInfo h2 {
+  font-weight: 600;
+  font-size: 38px;
+}
+.secInfo h5 {
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0;
+  margin: 18px 0;
+}
+.secInfo h4 {
+  font-weight: 600;
+  font-size: 32px;
+}
+.secInfo p {
+  font-weight: 600;
+  margin: 0 20px;
+}
+.secInfo .divider {
+  height: 3px;
+  width: 100%;
+  background: #78154f;
+  margin: 40px 0 30px;
+}
+.secInfo .container > h2 {
+  margin-bottom: 35px;
+  line-height: 1.4;
+}
+.secInfo button {
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0;
+  font-weight: 600;
+  height: 46px;
+  width: 690px;
+  padding: 0;
+}
+.introLogo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.roadDharmaPage .btn {
+  background-color: #852b5f;
+  letter-spacing: 0;
+  transition: 0.3s ease-out;
+  color: #fff;
+  margin: 0;
+}
+.roadDharmaPage .btn:hover {
+  background-color: #fff !important;
+  color: #852b5f;
+}
+.secIncluded {
+  background: url(../images/roadtodharma/included.jpeg) no-repeat;
+  background-color: rgb(0 0 0 / 0.5);
+  background-blend-mode: color;
+  background-size: cover;
+  background-position: bottom center;
+  padding: 55px 65px 10px;
+}
+.secHeadings {
+  font-family: 'LuloCleanW01-OneBold';
+  color: #fff;
+  letter-spacing: 0;
+}
+.secHeadings::after {
+  content: '';
+  height: 100px;
+  width: 1px;
+  display: block;
+  background: #fff;
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+.secIncluded .secHeadings {
+  display: table-caption;
+  margin-bottom: 30px;
+}
+.secLearned .secHeadings {
+  display: block;
+  margin-bottom: 30px;
+}
+.secIncluded ul,
+.secLearned ul,
+.secTry ul {
+  border: none;
+}
+.secIncluded ul li,
+.secLearned ul li {
+  position: relative;
+  margin-bottom: 18px;
+}
+.secIncluded ul li::before,
+.secLearned ul li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: -15px;
+  top: 9px;
+}
+.secIncluded ul li > div,
+.secLearned ul li > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.secIncluded ul li h6,
+.secLearned ul li h6 {
+  letter-spacing: 0;
+  color: #fff;
+  line-height: 1.4;
+  font-weight: 600;
+  font-size: 16px;
+}
+.secIncluded ul li h6 span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+}
+.includedIcons {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 50%;
+  margin-left: 45px;
+}
+.textBold {
+  font-weight: 600 !important;
+}
+.textLight {
+  font-weight: 300 !important;
+}
+.textNormal {
+  font-style: normal !important;
+}
+.secLearned {
+  background: url(../images/roadtodharma/learnBg.jpg) no-repeat;
+  background-color: rgb(0 0 0 / 0.5);
+  background-blend-mode: color;
+  background-size: cover;
+  background-position: bottom center;
+  padding: 50px 65px 45px;
+}
+.secTry {
+  background: url(../images/roadtodharma/tryBG.jpg) no-repeat;
+  background-color: rgb(0 0 0 / 25%);
+  background-blend-mode: color;
+  background-size: cover;
+  background-position: bottom center;
+  padding: 90px 65px 50px;
+}
+.secTry * {
+  color: #fff;
+}
+.secTry .secHeadings {
+  margin-bottom: 25px;
+  display: block;
+}
+.secTry p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.secTry ul li {
+  font-size: 18px;
+  font-weight: 600;
+}
+.roadDharmaPage .btnRegister {
+  font-family: 'LuloCleanW01-OneBold';
+  width: auto;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.2s ease, visibility 0s;
+  border-radius: 50px;
+  box-shadow: 0 1px 0 rgba(14, 24, 33, 0.33);
+  background: rgba(120, 21, 79, 0.58);
+  height: 48px;
+  padding: 0 20px;
+  letter-spacing: 0;
+}
+.secSlide {
+  height: 375px;
+  position: relative;
+}
+.secSlide div {
+  height: 100%;
+  padding: 0;
+}
+.secSlide .container > * {
+  height: auto;
+}
+.owl-carousel div.owl-nav {
+  height: auto;
+  margin: 0;
+}
+.react-slideshow-container button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  z-index: 9;
+  outline: none;
+}
+.react-slideshow-container button span {
+  display: none !important;
+}
+.react-slideshow-container button[data-type='prev'] {
+  left: 80px;
+  background: url(../images/roadtodharma/back.svg) no-repeat;
+}
+.react-slideshow-container button[data-type='next'] {
+  right: 80px;
+  background: url(../images/roadtodharma/next.svg) no-repeat;
+}
+.react-slideshow-container button[data-type='prev']:hover,
+.react-slideshow-container button[data-type='prev']:focus {
+  background: url(../images/roadtodharma/back.svg) no-repeat;
+}
+.react-slideshow-container button[data-type='next']:hover,
+.react-slideshow-container button[data-type='next']:focus {
+  background: url(../images/roadtodharma/next.svg) no-repeat;
+}
+.react-slideshow-container + .indicators {
+  position: absolute;
+  bottom: 25px;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+}
+.secSlide .react-slideshow-container + div.indicators li {
+  margin: 0 2px;
+}
+.secSlide
+  .react-slideshow-container
+  + div.indicators
+  .each-slideshow-indicator {
+  opacity: 1;
+}
+.secSlide
+  .react-slideshow-container
+  + div.indicators
+  .each-slideshow-indicator:before {
+  width: 8px;
+  height: 8px;
+  background: #c3c3c3;
+}
+.secSlide
+  .react-slideshow-container
+  + div.indicators
+  .each-slideshow-indicator.active:before {
+  border: 2px solid #fff;
+  background: transparent !important;
+}
+.owl-carousel .owl-dots {
+  height: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.owl-carousel .owl-dots button {
+  border: none;
+  outline: none;
+}
+.owl-carousel .owl-dots .owl-dot span {
+  width: 8px;
+  height: 8px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+}
+.owl-carousel .owl-dots .owl-dot.active span {
+  border: 2px solid #fff;
+  background: transparent !important;
+}
+.secSlide .owl-carousel .item h4 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+.secSlide .owl-carousel .item h4 span {
+  color: #fff;
+}
+.secSlide .slideBox p {
+  font-style: italic;
+  font-weight: 300;
+  color: #fff;
+}
+/* .slideContent{display: table-cell;position: relative;padding-left: 35px;} */
+.slideContent::before {
+  content: '';
+  width: 1px;
+  height: 100px;
+  background: #fff;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.slideContent.noLeftBorder::before {
+  display: none;
+}
+.slideContentSmall h4 {
+  font-size: 22px !important;
+}
+.slideContentSmall p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.slideContentSmall h3 {
+  font-style: italic;
+  font-weight: 600;
+  color: #fff;
+}
+.secFreedom {
+  background: url(../images/roadtodharma/onlineBg.jpg) no-repeat;
+  background-color: rgb(255 255 255 / 0.9);
+  background-size: cover;
+  background-blend-mode: color;
+  padding: 50px 65px;
+}
+.roadDharmaPage .secFreedom .container {
+  width: 865px;
+}
+.secFreedom .secHeadings {
+  margin-bottom: 35px;
+  display: block;
+}
+.secFreedom .secFormBox {
+  position: relative;
+  top: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 110px;
+  width: 100%;
+}
+.secFreedom .formLeft {
+  border: none;
+  width: 535px;
+  height: 302px;
+  display: block;
+}
+.secFreedom .formLeft iframe {
+  width: 100%;
+  height: 300px;
+}
+.secFreedom .formLeft p {
+  font-family: 'DINNextW01';
+  font-weight: 600;
+}
+.secFreedom .formRight h5 {
+  color: #5b0043;
+}
+.secFreedom .formRight .form-control {
+  color: #000 !important;
+}
+.secFreedom .formRight .form-control::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.secFreedom .formRight .form-control:-ms-input-placeholder {
+  color: #000 !important;
+}
+.secFreedom .formRight .form-control::placeholder {
+  color: #000 !important;
+}
+.btnLession {
+  padding: 0 15px;
+  height: 36px;
+  width: 100%;
+  text-align: left;
+  border-radius: 30px;
+  font-size: 12px;
+  border: 2px solid #bd529b;
+  background: #fff;
+  color: #842b5f;
+  font-weight: 600;
+  margin: 25px 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease, visibility 0s;
+}
+.btnLession:hover {
+  box-shadow: inset 0 -51px 0 #bd529b;
+  color: #fff;
+}
+.btnLession:hover span {
+  color: #fff;
+}
+.btnLession span {
+  color: #842b5f;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.btnLession img {
+  width: 10px;
+}
+.secGuide * {
+  color: #fff;
+}
+.guideLeft {
+  background: url(../images/roadtodharma/bg.jpg) no-repeat;
+  background-size: cover;
+  padding: 40px 110px;
+}
+.guideRight {
+  background: url(../images/roadtodharma/anandBg.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom right;
+}
+.secCreater * {
+  color: #000;
+}
+.createrLeft {
+  background: url(../images/roadtodharma/adamBg.jpg) no-repeat;
+  background-size: cover;
+}
+.createrRight {
+  background: #fff;
+  padding: 40px 110px;
+}
+.aboutPerson {
+  text-align: center;
+}
+.aboutPerson h4 {
+  font-family: LuloCleanW01-OneBold;
+  margin-bottom: 0;
+  font-size: 23px;
+  letter-spacing: 0;
+}
+.aboutPerson h5 {
+  letter-spacing: 0;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+.aboutPerson h6 {
+  font-weight: 300;
+  letter-spacing: 0;
+  font-size: 20px;
+  margin: 4px 0 3px;
+}
+.aboutPerson p {
+  text-align: justify;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.secRegister {
+  background: url(../images/roadtodharma/registerBg.jpg) no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+}
+.secRegister * {
+  color: #fff;
+}
+.secRegister h4 {
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 1.6;
+}
+.secRegister h4::after {
+  content: '';
+  width: 1px;
+  height: 80px;
+  background: #fff;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 12px;
+}
+.secRegister p {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 15px;
+}
+.roadDharmaPage .secRegister button {
+  height: 54px;
+  font-size: 26px;
+  letter-spacing: 0;
+  background: #7a154e;
+  width: 80%;
+}
+.roadDharmaPage footer {
+  background: transparent;
+  padding: 50px 0;
+}
+.roadDharmaPage footer::after {
+  display: none;
+}
+.roadDharmaPage footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+.roadDharmaPage .footerLogo {
+  width: 105px;
+  margin: auto;
+  margin-bottom: 35px;
+}
+.roadDharmaPage .footerLogo img {
+  width: 100%;
+}
+.roadDharmaPage footer li {
+  position: relative;
+  margin-left: 35px;
+}
+.roadDharmaPage footer li:first-child {
+  margin-left: 0;
+}
+.roadDharmaPage footer li::after {
+  content: '';
+  width: 1px;
+  height: 15px;
+  background: #c5207d;
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -18px;
+}
+.roadDharmaPage footer li:first-child::after {
+  display: none;
+}
+.roadDharmaPage footer li a {
+  text-transform: uppercase;
+  color: #7a154e;
+  font-size: 15px;
+  font-weight: 500;
+}
+.formModal {
+  background: rgb(199 224 238 / 50%) url(../images/roadtodharma/modalBg.jpg)
+    no-repeat;
+  background-blend-mode: color;
+  background-size: cover;
+  background-position: bottom;
+}
+.formModal .modal-dialog {
+  background: rgb(199 224 238 / 0.6);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+.formModal .modal-content {
+  width: 650px;
+  height: 400px;
+  margin: auto;
+  background: url(../images/roadtodharma/modalBg.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+.formModal .modal-body h3 {
+  font-family: LuloCleanW01-OneBold;
+  color: #8f0656;
+  text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px,
+    rgba(0, 0, 0, 0.6) -1px -1px 1px;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 30px;
+  display: block;
+}
+.formModal .modal-body h6 {
+  font-family: LuloCleanW01-OneBold;
+  color: #8f0656;
+  text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px,
+    rgba(0, 0, 0, 0.6) -1px -1px 1px;
+  text-align: center;
+  line-height: 1.6;
+}
+.roadDharmaPage .closeModal {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 99;
+  opacity: 1;
+  outline: none;
+}
+.roadDharmaPage .closeModal img {
+  width: 100%;
+}
+.formModal .form-group {
+  width: 100%;
+}
+.formModal .form-group .form-control {
+  height: 36px;
+  background: #fff;
+}
+.formModal .form-group .form-control::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.formModal .form-group .form-control:-ms-input-placeholder {
+  color: #000 !important;
+}
+.formModal .form-group .form-control::placeholder {
+  color: #000 !important;
+}
+.formModal form {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  margin-top: 25px;
+}
+.formModal button {
+  width: 60px;
+  height: auto;
+  font-weight: 300;
+  font-size: 15px;
+}
+.secFreedom .accordion {
+  border: none;
+}
+.accordion__item {
+  border: none !important;
+  margin-bottom: 20px;
+}
+.accordion__heading .accordion__button {
+  padding: 0 20px 0 15px;
+  height: 36px;
+  line-height: 32px;
+  width: 100%;
+  text-align: left;
+  border-radius: 30px;
+  font-size: 12px;
+  border: 2px solid #bd529b;
+  background: #fff;
+  color: #842b5f;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease, visibility 0s;
+  text-transform: uppercase;
+  font-family: 'Avenir Next';
+  outline: none;
+}
+.accordion__heading .accordion__button::before {
+  display: none;
+}
+.accordion__heading .accordion__button:hover {
+  box-shadow: inset 0 -51px 0 #bd529b;
+  color: #fff;
+}
+.accordion__heading .accordion__button[aria-expanded='true'] {
+}
+.accordion__heading .accordion__button[aria-expanded='false'] {
+}
+.accordion__heading .accordion__button span {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: #842b5f;
+  font-family: 'Avenir Next';
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.accordion__heading .accordion__button:hover span {
+  color: #fff;
+}
+.accordion__heading .accordion__button img {
+  width: 10px;
+  margin-left: 5px;
+}
+.accordion .accordion__panel {
+  padding: 15px;
+  padding-bottom: 0;
+}
+.accordion .accordion__panel p {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+.sliderContentRight h4 span {
+  font-size: 15px;
+}
+.secSlideBefore .slideContent::before {
+  left: -35px;
+}
+.secSlideBefore .slideContent h4 {
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #fff;
+}
+.fifthSlide h4,
+.sixthSlide h4 {
+  line-height: 1.6;
+}
+.secSlideAfter {
+  height: 450px;
+}
+.secSlideAfter .slideBox::after {
+  content: '';
+  background: rgb(0 0 0 / 50%);
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+.secSlideAfter .slideBox .container {
+  position: relative;
+  z-index: 99;
+}
+.secSlideAfter .slideContent h4 {
+  font-size: 24px !important;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.modalLogo {
+  height: 60px;
+}
+.modalLogo img {
+  height: 100%;
+}
+.slide-container * {
+  color: #fff;
+}
+.each-fade {
+  display: flex;
+}
+
+.each-fade img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.slideBox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.roadLogo {
+}
+
+@media only screen and (max-width: 1199px) {
+  .formLeft iframe {
+    background: #040404;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .secBanner {
+    height: 70vh;
+  }
+  .secFormBox {
+    width: 100%;
+    margin: 0;
+    padding: 25px 20px;
+  }
+  .formLeft {
+    height: 230px;
+  }
+  .formRight {
+    padding-left: 20px;
+  }
+  .secInfo,
+  .secLearned,
+  .secTry,
+  .secFreedom,
+  .secIncluded {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .guideLeft,
+  .createrRight {
+    padding: 40px;
+  }
+  .roadDharmaPage .secRegister button {
+    width: auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .roadDharmaPage .container {
+    width: 70%;
+    padding: 0;
+    max-width: 1280px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .secRegister h4 {
+    font-size: 22px;
+  }
+  .secRegister h4::after {
+    top: 10px;
+  }
+  .secInfo button {
+    width: 100%;
+  }
+  .secSlideBefore .slideContent h4 {
+    font-size: 20px;
+  }
+  .forthSlide .row:last-child {
+    display: none;
+  }
+  .bannerDetails h2 {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .secFormBox {
+    display: block;
+  }
+  .formLeft,
+  .formRight {
+    width: 100%;
+  }
+  .formLeft {
+    height: auto;
+  }
+  .formLeft iframe {
+    height: 300px;
+    width: 100%;
+  }
+  .secFreedom .formLeft {
+    height: auto;
+    width: 100%;
+  }
+  .formRight {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .secFreedom .secFormBox {
+    margin-bottom: 20px;
+  }
+  .guideRight,
+  .createrLeft {
+    display: none;
+  }
+  .includedIcons {
+    margin-left: 60px;
+  }
+  .secFormBox {
+    top: -270px;
+  }
+  .secInfo {
+    padding-top: 435px;
+  }
+  .formModal .modal-content,
+  .formModal form {
+    width: 90%;
+  }
+  .roadDharmaPage .secFreedom .container {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .secInfo,
+  .secLearned,
+  .secTry,
+  .secFreedom,
+  .secIncluded {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .secHeadings {
+    font-size: 24px;
+  }
+  .bannerDetails h4 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .bannerDetails h2 {
+    width: auto;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+  .secFormBox {
+    position: relative;
+    top: 0;
+  }
+  .secForm {
+    padding-top: 20px;
+  }
+  .secInfo h2 {
+    font-size: 28px;
+  }
+  .secInfo h5 {
+    font-size: 20px;
+  }
+  .secInfo h4 {
+    font-size: 24px;
+  }
+  .secInfo p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .secInfo button {
+    padding: 10px 35px;
+    height: auto;
+  }
+  .roadDharmaPage .secRegister button {
+    height: auto;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  .roadDharmaPage footer {
+    padding: 20px 0;
+  }
+  .aboutPerson h4 {
+    font-size: 20px;
+  }
+  .aboutPerson h5 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .guideLeft,
+  .createrRight {
+    padding: 25px;
+  }
+  .btnLession {
+    margin-top: 0;
+  }
+  .formLeft iframe,
+  .secFreedom .formLeft iframe {
+    height: auto;
+  }
+  .secSlideBefore .slideContent::before {
+    left: 0;
+  }
+  .includedIcons {
+    margin-left: 90px;
+  }
+  .react-slideshow-container button[data-type='prev'] {
+    left: 5px;
+  }
+  .react-slideshow-container button[data-type='next'] {
+    right: 5px;
+  }
+  .secBanner {
+    height: 55vh;
+  }
+  .bannerDetails {
+    margin-top: 25px;
+  }
+  .roadDharmaPage header ul {
+    justify-content: center;
+    margin-right: 0;
+  }
+  /* .slideContent{width: 95%;margin: auto;} */
+  .slideContent::before,
+  .secHeadings::after {
+    display: none;
+  }
+  .formModal .modal-content {
+    height: auto;
+    padding: 25px 0;
+  }
+  .formModal .modal-body h3 {
+    line-height: 1.2;
+    font-size: 24px;
+  }
+  .modalLogo {
+    margin-bottom: 25px;
+  }
+}
+.testimonialDiv {
+  background: url(../images/imgpsh_fullsize_anim.jpg);
+  text-align: center;
+  padding: 21px;
+}
