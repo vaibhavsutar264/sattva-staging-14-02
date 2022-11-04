@@ -6432,6 +6432,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .hoverable.card img {
   height: 140px;
+  object-fit: cover;
 }
 
 .secSeriesInner .hoverable .card-content > span {
@@ -15741,8 +15742,38 @@ span.carousel-control-prev-icon {
   width: 100%;
 }
 
+/* Rohit */
+h4.new-count-type {
+  font-family: "Avenir Next";
+  font-size: 20px !important;
+  line-height: 36px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal;
+}
+
 .fb-button {
   color: #4267b2 !important;
+}
+
+h4.new-count-type {
+  margin-bottom: 0px;
+}
+
+.new-count .primary-color {
+  background-color: transparent !important;
+}
+
+/* h3.new-count {
+  padding-top: 2rem;
+} */
+
+span.counting {
+  font-size: 3rem;
+}
+
+.counter-width {
+  min-width: 213px;
+  padding: 20px 0px;
 }
 
 @media screen and (max-width: 768px) {
