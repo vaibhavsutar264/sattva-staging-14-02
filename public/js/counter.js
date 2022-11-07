@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-window.$ = $;
+window.$ = window.jQuery = require("jquery");
 
 $(window).scroll(function () {
   $(".counting").each(function () {

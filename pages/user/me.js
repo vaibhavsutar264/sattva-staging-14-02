@@ -27,7 +27,8 @@ import FavSeries from "../../components/user/FavSeries";
 import { SearchContext } from "../../components/user/ContextSearch";
 import router from "next/router";
 import SurpiseMe from "../../components/SurpiseMe";
-import "../../public/js/coutnter";
+import "../../public/js/counter";
+import Head from "next/head";
 
 export default class Me extends Component {
   static contextType = SearchContext;
@@ -254,6 +255,14 @@ export default class Me extends Component {
               minHeight: "500px",
             }}
           >
+            <Head>
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+                integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              ></script>
+            </Head>
             <div className="container text-center text-white">
               <h1 className="revamp-signature-heading mb-0">
                 Your Yoga Studio
@@ -327,7 +336,7 @@ export default class Me extends Component {
                     <div className="countBox">
                       <span className="">You have</span>
                       <h3 className="new-count">
-                        <span className="counting" data-count="120">
+                        <span className="counting" data-count="60">
                           0
                         </span>{" "}
                       </h3>
@@ -341,7 +350,7 @@ export default class Me extends Component {
                     <div className="countBox">
                       <span className="">You participated in</span>
                       <h3 className="new-count">
-                        <span className="counting" data-count="120">
+                        <span className="counting" data-count="30">
                           0
                         </span>{" "}
                       </h3>
