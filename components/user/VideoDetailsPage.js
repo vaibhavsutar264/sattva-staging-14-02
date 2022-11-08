@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import Router from 'next/router';
-import axios from 'axios';
-import Layout from '../../components/user/Layout';
+import React, { Component } from "react";
+import Router from "next/router";
+import axios from "axios";
+import Layout from "../../components/user/Layout";
 import {
   apiRoute,
   getApiHeader,
   getUserId,
   userProfilePath,
   getLocalStorageAuth,
-} from '../../utils/helpers';
-import ReactTooltip from 'react-tooltip';
-import Vimeo from '@u-wave/react-vimeo';
-import SimpleReactValidator from 'simple-react-validator';
-import Moment from 'react-moment';
-import router from 'next/router';
-import debounce from 'lodash.debounce';
-import moment from 'moment';
+} from "../../utils/helpers";
+import ReactTooltip from "react-tooltip";
+import Vimeo from "@u-wave/react-vimeo";
+import SimpleReactValidator from "simple-react-validator";
+import Moment from "react-moment";
+import router from "next/router";
+import debounce from "lodash.debounce";
+import moment from "moment";
 
 class VideoDetailsPage extends Component {
   constructor(props) {
@@ -26,17 +26,17 @@ class VideoDetailsPage extends Component {
     this.state = {
       video: {},
       videoId: this.props.videoId,
-      userId: '',
+      userId: "",
       hariom: [],
       comments: [],
       showModal: false,
-      hariomMessage: '',
+      hariomMessage: "",
       classStatus: false,
       favoriteStatus: false,
       markDone: false,
       alert: false,
-      alertType: '',
-      alertMsg: '',
+      alertType: "",
+      alertMsg: "",
       showHariomForm: false,
       showToolTip: false,
       showTextArea: false,
@@ -48,7 +48,7 @@ class VideoDetailsPage extends Component {
       subscriptionStatus: true,
       loading: true,
       isToggleOn: false,
-      noteComment: '',
+      noteComment: "",
       NoteCommentData: [],
       isButtonDisabled: false,
       hasComment: false,
@@ -65,7 +65,10 @@ class VideoDetailsPage extends Component {
       headers: getApiHeader(true),
     };
     axios
-      .get(apiRoute(`show-notes/${userId}/${this.props.videoId}`), requestOptions)
+      .get(
+        apiRoute(`show-notes/${userId}/${this.props.videoId}`),
+        requestOptions
+      )
       .then((res) => {
         this.setState({ NoteCommentData: res.data });
         var arrlength = res.data;
@@ -86,9 +89,9 @@ class VideoDetailsPage extends Component {
     const userId = getUserId(this.props.history);
     this.setState({ userId: userId });
     const auth = getLocalStorageAuth();
-    this.onNotedisplayComment()
-    console.log('userId: ' + userId)
-    console.log(auth)
+    this.onNotedisplayComment();
+    console.log("userId: " + userId);
+    console.log(auth);
 
     if (auth) {
       const userDetails = auth.userDetails;
@@ -99,14 +102,14 @@ class VideoDetailsPage extends Component {
         axios
           .get(
             apiRoute(
-              'user-dashboard/check-subscriber-status/' +
-              userDetails.transaction_id
+              "user-dashboard/check-subscriber-status/" +
+                userDetails.transaction_id
             ),
             requestOptions
           )
           .then((res) => {
             if (res.data) {
-              console.log('res');
+              console.log("res");
               console.log(res);
               if (res.data.status === false) {
                 this.setState({ subscriptionStatus: false });
@@ -124,15 +127,15 @@ class VideoDetailsPage extends Component {
       axios
         .get(
           apiRoute(
-            'user-dashboard/get-video-details/' +
-            this.state.videoId +
-            '/' +
-            userId
+            "user-dashboard/get-video-details/" +
+              this.state.videoId +
+              "/" +
+              userId
           ),
           requestOptions
         )
         .then((res) => {
-          console.log('nadeem');
+          console.log("nadeem");
           console.log(res.data);
           this.setState({
             video: res.data.videoDetails,
@@ -149,7 +152,7 @@ class VideoDetailsPage extends Component {
       //get video all harioms
       axios
         .get(
-          apiRoute('user-dashboard/get-video-hariom/' + this.state.videoId),
+          apiRoute("user-dashboard/get-video-hariom/" + this.state.videoId),
           requestOptions
         )
         .then((res) => {
@@ -175,7 +178,7 @@ class VideoDetailsPage extends Component {
         video_id: this.state.videoId,
       };
       axios.post(
-        apiRoute('user-dashboard/add-recent-watched'),
+        apiRoute("user-dashboard/add-recent-watched"),
         details,
         requestOptions
       );
@@ -188,16 +191,16 @@ class VideoDetailsPage extends Component {
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
     if (h < 10) {
-      h = '0' + h;
+      h = "0" + h;
     }
     if (m < 10) {
-      m = '0' + m;
+      m = "0" + m;
     }
     if (s < 10) {
-      s = '0' + s;
+      s = "0" + s;
     }
     // var time = h + ':' + m + ':' + s;
-    var time = h === "00" ? m + ' minutes' : '';
+    var time = h === "00" ? m + " minutes" : "";
     return time;
   };
   changeFavoriteStatus = (e) => {
@@ -213,7 +216,7 @@ class VideoDetailsPage extends Component {
     if (!this.state.favoriteStatus) {
       axios
         .post(
-          apiRoute('user-dashboard/add-user-favorite'),
+          apiRoute("user-dashboard/add-user-favorite"),
           details,
           requestOptions
         )
@@ -224,15 +227,15 @@ class VideoDetailsPage extends Component {
           window.scrollTo(0, 0);
           this.setState({
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
             loading: false,
           });
         });
     } else {
       axios
         .post(
-          apiRoute('user-dashboard/remove-user-favorite'),
+          apiRoute("user-dashboard/remove-user-favorite"),
           details,
           requestOptions
         )
@@ -244,8 +247,8 @@ class VideoDetailsPage extends Component {
           this.setState({
             loading: false,
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
           });
         });
     }
@@ -264,7 +267,7 @@ class VideoDetailsPage extends Component {
     if (!this.state.markDone) {
       axios
         .post(
-          apiRoute('user-dashboard/add-user-video-mark-done'),
+          apiRoute("user-dashboard/add-user-video-mark-done"),
           details,
           requestOptions
         )
@@ -275,15 +278,15 @@ class VideoDetailsPage extends Component {
           window.scrollTo(0, 0);
           this.setState({
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
             loading: false,
           });
         });
     } else {
       axios
         .post(
-          apiRoute('user-dashboard/remove-user-video-mark-done'),
+          apiRoute("user-dashboard/remove-user-video-mark-done"),
           details,
           requestOptions
         )
@@ -295,8 +298,8 @@ class VideoDetailsPage extends Component {
           this.setState({
             loading: false,
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
           });
         });
     }
@@ -314,7 +317,7 @@ class VideoDetailsPage extends Component {
     if (!this.state.classStatus) {
       axios
         .post(
-          apiRoute('user-dashboard/add-user-classes'),
+          apiRoute("user-dashboard/add-user-classes"),
           details,
           requestOptions
         )
@@ -326,14 +329,14 @@ class VideoDetailsPage extends Component {
           this.setState({
             loading: false,
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
           });
         });
     } else {
       axios
         .post(
-          apiRoute('user-dashboard/remove-user-classes'),
+          apiRoute("user-dashboard/remove-user-classes"),
           details,
           requestOptions
         )
@@ -345,14 +348,14 @@ class VideoDetailsPage extends Component {
           this.setState({
             loading: false,
             error: true,
-            alertType: 'error',
-            alertMsg: 'Something went wrong please try again.',
+            alertType: "error",
+            alertMsg: "Something went wrong please try again.",
           });
         });
     }
   };
   changeMarkDone = () => {
-    this.setState({ markDone: !this.state.markDone })
+    this.setState({ markDone: !this.state.markDone });
   };
   toggleToolTip = (status) => {
     this.setState({ showToolTip: status });
@@ -388,7 +391,7 @@ class VideoDetailsPage extends Component {
     };
     axios
       .post(
-        apiRoute('user-dashboard/add-video-hariom'),
+        apiRoute("user-dashboard/add-video-hariom"),
         details,
         requestOptions
       )
@@ -397,13 +400,13 @@ class VideoDetailsPage extends Component {
         this.setState({
           loading: false,
           alert: true,
-          alertType: 'success',
+          alertType: "success",
           alertMsg: res.data.message,
           showHariomBtn: false,
         });
         axios
           .get(
-            apiRoute('user-dashboard/get-video-hariom/' + this.state.videoId),
+            apiRoute("user-dashboard/get-video-hariom/" + this.state.videoId),
             requestOptions
           )
           .then((res) => {
@@ -418,15 +421,15 @@ class VideoDetailsPage extends Component {
         this.setState({
           loading: false,
           error: true,
-          alertType: 'error',
-          alertMsg: 'Something went wrong please try again.',
+          alertType: "error",
+          alertMsg: "Something went wrong please try again.",
         });
       });
   };
 
   handleClick() {
-    this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
+    this.setState((prevState) => ({
+      isToggleOn: !prevState.isToggleOn,
     }));
   }
 
@@ -437,9 +440,9 @@ class VideoDetailsPage extends Component {
   onNoteFormSubmit(e) {
     e.preventDefault();
     this.setState({
-      isButtonDisabled: true
+      isButtonDisabled: true,
     });
-    setTimeout(() => this.setState({ isButtonDisabled: false }), 3000)
+    setTimeout(() => this.setState({ isButtonDisabled: false }), 3000);
 
     if (this.state.noteComment) {
       const requestOptions = {
@@ -451,14 +454,15 @@ class VideoDetailsPage extends Component {
         comments: this.state.noteComment,
       };
       console.log(details);
-      axios.post(apiRoute('store-notes'), details, requestOptions)
+      axios
+        .post(apiRoute("store-notes"), details, requestOptions)
         .then((res) => {
-          this.setState({ noteComment: '' })
+          this.setState({ noteComment: "" });
           this.onNotedisplayComment();
-        }).catch(err => console.log(err));
+        })
+        .catch((err) => console.log(err));
     }
   }
-
 
   onDeleteNote = (noteId) => {
     const userId = getUserId(this.props.history);
@@ -467,11 +471,13 @@ class VideoDetailsPage extends Component {
     };
     axios
       .get(apiRoute(`delete-notes/${noteId}`), requestOptions)
-      .then((res) => { this.onNotedisplayComment(); })
+      .then((res) => {
+        this.onNotedisplayComment();
+      })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
 
   currentTime = (e) => {
     const seconds = Math.trunc(e.seconds);
@@ -481,80 +487,92 @@ class VideoDetailsPage extends Component {
     }
   };
 
-
-
   render() {
     const { alert, alertType, alertMsg } = this.state;
     if (this.state.isToggleOn) {
-      var activeclass = 'active';
+      var activeclass = "active";
     } else {
-      var activeclass = ''
+      var activeclass = "";
     }
-
 
     return (
       <>
         <Layout loading={this.state.loading}>
-          <main className='admin-content light-purplebg'>
-            <section className='sec'>
-              <div className='container'>
-                <div className='card card-view'>
-                  <div className='card-content p-3'>
-                    <div className='media-header'>
+          <main className="admin-content light-purplebg">
+            <section className="sec">
+              <div className="container">
+                <div className="card card-view">
+                  <div className="card-content p-3">
+                    <div className="media-header">
                       <div>
-                        {alert && alertType === 'error' && (
+                        {alert && alertType === "error" && (
                           <div
-                            className='alert alert-danger col-sm-6'
-                            role='alert'
+                            className="alert alert-danger col-sm-6"
+                            role="alert"
                           >
                             {alertMsg}
                           </div>
                         )}
-                        {alert && alertType === 'success' && (
+                        {alert && alertType === "success" && (
                           <div
-                            className='alert alert-success col-sm-6'
-                            role='alert'
+                            className="alert alert-success col-sm-6"
+                            role="alert"
                           >
                             {alertMsg}
                           </div>
                         )}
-                        <h4 className='revamp-videotitle mb-0'>
-                          {this.state.video.title}{' '}
+                        <h4 className="revamp-videotitle mb-0">
+                          {this.state.video.title}{" "}
                         </h4>
-                        <div className='meta_info mt-0 mb-1'>
-                          <span class='teacher'>
-                            Teacher: <span className='revamp-signature'>{this.state.video.teacherName}</span>
+                        <div className="meta_info mt-0 mb-1">
+                          <span class="teacher">
+                            Teacher:{" "}
+                            <span className="revamp-signature">
+                              {this.state.video.teacherName}
+                            </span>
                           </span>
-                          <span className='duration'>
-                            {' '}
+                          <span className="duration">
+                            {" "}
                             Duration:
-                            <span className='revamp-signature'>{this.getVideoTime(this.state.video.duration)}</span>
+                            <span className="revamp-signature">
+                              {this.getVideoTime(this.state.video.duration)}
+                            </span>
+                          </span>
+                          <span
+                            style={{ marginLeft: "20px", color: "#afafaf" }}
+                          >
+                            Views:{" "}
+                            <span
+                              style={{ color: "#121212", fontSize: "16px" }}
+                            >
+                              8.4k
+                            </span>
                           </span>
                         </div>
                       </div>
                       <>
-                        <div className='media-btns  media-flex text-right my-4'>
+                        <div className="media-btns  media-flex text-right my-4">
                           <a
                             title={
                               this.state.classStatus === false
-                                ? 'Add to My Classes'
-                                : 'Remove from My Classes'
+                                ? "Add to My Classes"
+                                : "Remove from My Classes"
                             }
                             className={
                               this.state.classStatus === false
-                                ? 'btn btn-sm mr-3 '
-                                : 'btn btn-sm mr-3 alt-btn'
+                                ? "btn btn-sm mr-3 "
+                                : "btn btn-sm mr-3 alt-btn"
                             }
                             onClick={this.changeClasesStatus}
                           >
                             {this.state.classStatus === false ? (
                               <>
-                                <i className='fas fa-plus' />
+                                <i className="fas fa-plus" />
                                 {/* <>Add to my classes</> */}
                               </>
                             ) : (
                               <>
-                                <i class='fas fa-minus' />
+                                <i class="fas fa-minus" />
                                 {/* <> Remove from my classes</> */}
                               </>
                             )}
@@ -562,24 +580,24 @@ class VideoDetailsPage extends Component {
                           <a
                             title={
                               this.state.favoriteStatus === false
-                                ? 'Add to My Favorites'
-                                : 'Remove from My Favorites'
+                                ? "Add to My Favorites"
+                                : "Remove from My Favorites"
                             }
                             className={
                               this.state.favoriteStatus === false
-                                ? 'btn btn-sm mr-3 favorited'
-                                : 'btn btn-sm mr-3 alt-btn'
+                                ? "btn btn-sm mr-3 favorited"
+                                : "btn btn-sm mr-3 alt-btn"
                             }
                             onClick={this.changeFavoriteStatus}
                           >
                             {this.state.favoriteStatus === false ? (
                               <>
-                                <i className='far fa-heart' />
+                                <i className="far fa-heart" />
                                 {/* <> Add to Favorite</> */}
                               </>
                             ) : (
                               <>
-                                <i class='fas fa-heart' aria-hidden='true'></i>
+                                <i class="fas fa-heart" aria-hidden="true"></i>
                                 {/* <> Remove from Favorite</> */}
                               </>
                             )}
@@ -587,24 +605,24 @@ class VideoDetailsPage extends Component {
                           <a
                             title={
                               this.state.markDone === false
-                                ? 'Mark as completed'
-                                : 'Removed Marked done'
+                                ? "Mark as completed"
+                                : "Removed Marked done"
                             }
                             className={
                               this.state.markDone === false
-                                ? 'btn btn-sm mr-3 favorited'
-                                : 'btn btn-sm mr-3 alt-btn'
+                                ? "btn btn-sm mr-3 favorited"
+                                : "btn btn-sm mr-3 alt-btn"
                             }
                             onClick={this.changeMarkDone}
                           >
                             {this.state.markDone === false ? (
                               <>
-                                <i className='fas fa-check' />
+                                <i className="fas fa-check" />
                                 {/* <> Add to Favorite</> */}
                               </>
                             ) : (
                               <>
-                                <i class='fas fa-check' aria-hidden='true'></i>
+                                <i class="fas fa-check" aria-hidden="true"></i>
                                 {/* <> Remove from Favorite</> */}
                               </>
                             )}
@@ -618,7 +636,7 @@ class VideoDetailsPage extends Component {
                         </div>
                       </>
                     </div>
-                    <div className='media-content'>
+                    <div className="media-content">
                       <div>
                         {this.state.video.video_url && (
                           <Vimeo
@@ -628,7 +646,7 @@ class VideoDetailsPage extends Component {
                           />
                         )}
                         {/* <iframe   allowfullscreen="true" src={this.state.video.video_url} frameBorder={0} width="100%" height={480} /> */}
-                      </div>{' '}
+                      </div>{" "}
                       {/* <div className='media-btns text-right my-4'>
                         <a
                           title={
@@ -687,107 +705,138 @@ class VideoDetailsPage extends Component {
                               : 'btn btn-sm btn-notes waves-effect waves-light'
                           }><i class="fas fa-pen"></i> Notes</a>
                       </div> */}
-                      <div className={'notes-content ' + activeclass} >
-                        <div className='chat-output' id='chat-output' >
-
-                          {this.state.NoteCommentData && this.state.NoteCommentData.map((data, index) => {
-                            return (
-                              <div className="bot-message">
-                                <div className="message msg_box">{data.comments}<a className='btn' onClick={() => this.onDeleteNote(data.id)}>
-                                  <i className='fas fa-times' />
-                                </a></div>
-                                <div className="date"><Moment format="DD MMM YYYY HH:mm">{data.created_at}</Moment></div>
-                              </div>
-                            )
-                          })
-                          }
+                      <div className={"notes-content " + activeclass}>
+                        <div className="chat-output" id="chat-output">
+                          {this.state.NoteCommentData &&
+                            this.state.NoteCommentData.map((data, index) => {
+                              return (
+                                <div className="bot-message">
+                                  <div className="message msg_box">
+                                    {data.comments}
+                                    <a
+                                      className="btn"
+                                      onClick={() => this.onDeleteNote(data.id)}
+                                    >
+                                      <i className="fas fa-times" />
+                                    </a>
+                                  </div>
+                                  <div className="date">
+                                    <Moment format="DD MMM YYYY HH:mm">
+                                      {data.created_at}
+                                    </Moment>
+                                  </div>
+                                </div>
+                              );
+                            })}
                         </div>
-                        <div className='chat-input'>
-                          <form id='user-input-form' onSubmit={this.onNoteFormSubmit}>
+                        <div className="chat-input">
+                          <form
+                            id="user-input-form"
+                            onSubmit={this.onNoteFormSubmit}
+                          >
                             <input
-                              type='text'
-                              name='user-input'
-                              id='user-input' value={this.state.noteComment} onChange={this.handleChange}
-                              className='user-input'
-                              placeholder='Type your notes here'
+                              type="text"
+                              name="user-input"
+                              id="user-input"
+                              value={this.state.noteComment}
+                              onChange={this.handleChange}
+                              className="user-input"
+                              placeholder="Type your notes here"
                             />
-                            <button type="submit" style={{
-                              opacity: '0', display: 'none'
-                            }} disabled={this.state.isButtonDisabled}>Submit</button>
+                            <button
+                              type="submit"
+                              style={{
+                                opacity: "0",
+                                display: "none",
+                              }}
+                              disabled={this.state.isButtonDisabled}
+                            >
+                              Submit
+                            </button>
                           </form>
                         </div>
-                        <a href="javascript:void(0)" className='btn close-notes' onClick={this.handleClick}>
-                          <i className='fas fa-times' />
+                        <a
+                          href="javascript:void(0)"
+                          className="btn close-notes"
+                          onClick={this.handleClick}
+                        >
+                          <i className="fas fa-times" />
                         </a>
                       </div>
                       <p
-                        className='revamp-para-small mt-4'
+                        className="revamp-para-small mt-4"
                         dangerouslySetInnerHTML={{
                           __html: this.state.video.description,
                         }}
                       ></p>
-                      <a title="Notes" style={{ textTransform: 'capitalize' }} onClick={this.handleClick}
+                      <a
+                        title="Notes"
+                        style={{ textTransform: "capitalize" }}
+                        onClick={this.handleClick}
                         class={
                           this.state.hasComment === true
-                            ? 'btn btn-sm'
-                            : 'btn btn-sm btn-notes waves-effect waves-light'
-                        }><i class="fas fa-pen"></i> Add your Personal Notes</a>
-                      <div className='recent-cont  commnt-section'>
+                            ? "btn btn-sm"
+                            : "btn btn-sm btn-notes waves-effect waves-light"
+                        }
+                      >
+                        <i class="fas fa-pen"></i> Add your Personal Notes
+                      </a>
+                      <div className="recent-cont  commnt-section">
                         <div
-                          class='tooltip_templates'
+                          class="tooltip_templates"
                           style={{
-                            position: 'absolute',
-                            bottom: '90px',
-                            left: '-60px',
+                            position: "absolute",
+                            bottom: "90px",
+                            left: "-60px",
                           }}
                         >
                           {this.state.showToolTip && (
-                            <div id='tooltip_content'>
-                              <div class='modal-content'>
+                            <div id="tooltip_content">
+                              <div class="modal-content">
                                 <div
-                                  class='card-contentt'
-                                  style={{ padding: '10px' }}
+                                  class="card-contentt"
+                                  style={{ padding: "10px" }}
                                 >
-                                  <span class='card-titlet'>Hari Om</span>
-                                  <p class='hariom_main'>
+                                  <span class="card-titlet">Hari Om</span>
+                                  <p class="hariom_main">
                                     If you would like to show gratitude and give
                                     thanks, use Hari Om.
                                   </p>
                                   {this.state.allowToHariom == false ? (
-                                    <p class='hariom_foot'>
-                                      Watch{' '}
-                                      <span class='cthari'>
+                                    <p class="hariom_foot">
+                                      Watch{" "}
+                                      <span class="cthari">
                                         {this.state.hariomTime === 60
-                                          ? '1:00'
-                                          : '00:' + this.state.hariomTime}
-                                      </span>{' '}
+                                          ? "1:00"
+                                          : "00:" + this.state.hariomTime}
+                                      </span>{" "}
                                       more minutes before you can use Hari Om.
                                     </p>
                                   ) : (
-                                    ''
+                                    ""
                                   )}
                                 </div>
                               </div>
                             </div>
                           )}
                         </div>
-                        <h6 class='recent-head'>Recent Hari OMs</h6>
-                        <div className='recent-list'>
+                        <h6 class="recent-head">Recent Hari OMs</h6>
+                        <div className="recent-list">
                           {this.state.hariom.map((item, index) => {
                             return (
-                              <div class='pop-img'>
+                              <div class="pop-img">
                                 {item.comment !== null ? (
                                   <a
                                     data-html={true}
-                                    data-for='custom-color-no-arrow'
+                                    data-for="custom-color-no-arrow"
                                     data-tip={
-                                      '<h6>' +
+                                      "<h6>" +
                                       item.user?.first_name +
-                                      ' ' +
+                                      " " +
                                       item.user?.last_name +
-                                      '</h6><br/><hp>' +
+                                      "</h6><br/><hp>" +
                                       item.comment +
-                                      '</hp>'
+                                      "</hp>"
                                     }
                                   >
                                     <img
@@ -799,13 +848,13 @@ class VideoDetailsPage extends Component {
                                 ) : (
                                   <a
                                     data-html={true}
-                                    data-for='custom-color-no-arrow'
+                                    data-for="custom-color-no-arrow"
                                     data-tip={
-                                      '<h6>' +
+                                      "<h6>" +
                                       item.user?.first_name +
-                                      ' ' +
+                                      " " +
                                       item.user?.last_name +
-                                      '</h6>'
+                                      "</h6>"
                                     }
                                   >
                                     <img
@@ -817,97 +866,115 @@ class VideoDetailsPage extends Component {
                                 )}
 
                                 <ReactTooltip
-                                  id='custom-color-no-arrow'
-                                  className='react-tooltip videoTooltip'
+                                  id="custom-color-no-arrow"
+                                  className="react-tooltip videoTooltip"
                                   delayHide={1000}
-                                  textColor='#000'
-                                  backgroundColor='#ffff'
-                                  effect='solid'
+                                  textColor="#000"
+                                  backgroundColor="#ffff"
+                                  effect="solid"
                                 />
                               </div>
                             );
                           })}
                           {this.state.hariom && (
                             <button
-                              data-toggle='modal'
-                              data-target='#hariom'
-                              type='button'
-                              className='btn btn-sm pop'
-                              data-tooltip-content='#tooltip_content'
-                              id='tooltipsterhariom'
+                              data-toggle="modal"
+                              data-target="#hariom"
+                              type="button"
+                              className="btn btn-sm pop"
+                              data-tooltip-content="#tooltip_content"
+                              id="tooltipsterhariom"
                               onMouseEnter={() => this.toggleToolTip(true)}
                               onMouseLeave={() => this.toggleToolTip(false)}
                             >
-                              <p style={{ display: 'flex', alignItems: 'center' }}><span style={{ fontSize: '16px', marginRight: '6px' }}>{this.state.hariom.length}</span>  <img className='om-icon' src='../../images/folded.png' /></p>
+                              <p
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontSize: "16px",
+                                    marginRight: "6px",
+                                  }}
+                                >
+                                  {this.state.hariom.length}
+                                </span>{" "}
+                                <img
+                                  className="om-icon"
+                                  src="../../images/folded.png"
+                                />
+                              </p>
                             </button>
                           )}
                         </div>
                       </div>
                       {this.state.comments.length > 0 ? (
-                        <div className='showCommentDiv'>
+                        <div className="showCommentDiv">
                           <p
-                            class='text-purple showCommentText'
+                            class="text-purple showCommentText"
                             onClick={this.toggleComment}
                           >
                             Comments
                           </p>
                           {this.state.showCommentArea ? (
                             <p
-                              class='text-purple showCommentIcon'
+                              class="text-purple showCommentIcon"
                               onClick={this.toggleComment}
                             >
                               <i
-                                class='fa fa-arrow-circle-up'
-                                aria-hidden='true'
+                                class="fa fa-arrow-circle-up"
+                                aria-hidden="true"
                               ></i>
                             </p>
                           ) : (
                             <p
-                              class='text-purple showCommentIcon'
+                              class="text-purple showCommentIcon"
                               onClick={this.toggleComment}
                             >
                               <i
-                                class='fa fa-arrow-circle-down'
-                                aria-hidden='true'
+                                class="fa fa-arrow-circle-down"
+                                aria-hidden="true"
                               ></i>
                             </p>
                           )}
                         </div>
                       ) : (
-                        ''
+                        ""
                       )}
                       {this.state.showCommentArea ? (
                         <>
                           {this.state.comments.map((item, index) => {
                             return (
                               <>
-                                <div class=' recent-list recent-cmnts'>
-                                  <div class='cmnt-img-box'>
-                                    <div class=' pop-img'>
+                                <div class=" recent-list recent-cmnts">
+                                  <div class="cmnt-img-box">
+                                    <div class=" pop-img">
                                       <img
                                         src={userProfilePath(
                                           item.user.profile_pic
                                         )}
                                       />
                                     </div>
-                                    <div class='receiver-box'>
+                                    <div class="receiver-box">
                                       <h6>
-                                        {item.user.first_name}{' '}
+                                        {item.user.first_name}{" "}
                                         {item.user.last_name}
                                       </h6>
                                       <hp>{item.comment}</hp>
                                     </div>
                                   </div>
                                   {item.reply ? (
-                                    <div class='rec-cmnt-box'>
-                                      <div class='sender-box'>
-                                        {' '}
+                                    <div class="rec-cmnt-box">
+                                      <div class="sender-box">
+                                        {" "}
                                         <span>- Admin</span>
                                         {item.reply}
                                       </div>
                                     </div>
                                   ) : (
-                                    ''
+                                    ""
                                   )}
                                 </div>
                               </>
@@ -915,7 +982,7 @@ class VideoDetailsPage extends Component {
                           })}
                         </>
                       ) : (
-                        ''
+                        ""
                       )}
                     </div>
                   </div>
@@ -924,45 +991,45 @@ class VideoDetailsPage extends Component {
             </section>
             {this.state.allowToHariom == true ? (
               <div
-                className='modal fade '
-                id='hariom'
+                className="modal fade "
+                id="hariom"
                 tabIndex={-1}
-                role='dialog'
-                aria-labelledby='upgradeTitle'
-                aria-hidden='true'
+                role="dialog"
+                aria-labelledby="upgradeTitle"
+                aria-hidden="true"
               >
                 <div
-                  className='modal-dialog modal-md modal-dialog-centered'
-                  role='document'
+                  className="modal-dialog modal-md modal-dialog-centered"
+                  role="document"
                 >
-                  <div className='modal-content'>
+                  <div className="modal-content">
                     <button
-                      type='button'
-                      class='close inner-close'
-                      data-dismiss='modal'
+                      type="button"
+                      class="close inner-close"
+                      data-dismiss="modal"
                       ref={this.hariomModal}
                     >
                       &times;
                     </button>
 
-                    <div className='modal-body'>
+                    <div className="modal-body">
                       <form onSubmit={this.handleSubmitHariom}>
-                        <div className='row'>
-                          <div className='col-md-12'>
-                            <h5 className='mb-2 hariom-heading'>Hari Om</h5>
-                            <div className='row'>
-                              <div className='col-md-12'>
-                                <div id='mswitch' className='switch'>
+                        <div className="row">
+                          <div className="col-md-12">
+                            <h5 className="mb-2 hariom-heading">Hari Om</h5>
+                            <div className="row">
+                              <div className="col-md-12">
+                                <div id="mswitch" className="switch">
                                   <p className>
                                     Would you also like to say something?
                                   </p>
                                   <p>
                                     <input
-                                      type='checkbox'
-                                      id='test5'
+                                      type="checkbox"
+                                      id="test5"
                                       onClick={this.toggleTextArea}
                                     />
-                                    <label for='test5'>
+                                    <label for="test5">
                                       If Yes please check and continue
                                     </label>
                                   </p>
@@ -971,26 +1038,26 @@ class VideoDetailsPage extends Component {
                             </div>
                           </div>
                           {this.state.showTextArea && (
-                            <div className='col-md-12 '>
-                              <div className=''>
-                                <div className='input-field'>
+                            <div className="col-md-12 ">
+                              <div className="">
+                                <div className="input-field">
                                   <textarea
                                     onChange={this.onChange}
                                     cols={50}
                                     rows={5}
-                                    name='form[Tell me more about]'
-                                    id='Tell me more about'
-                                    className='rsform-text-box'
+                                    name="form[Tell me more about]"
+                                    id="Tell me more about"
+                                    className="rsform-text-box"
                                     value={this.state.hariomMessage}
                                   />
                                   {this.hariomValidation.message(
-                                    'message',
+                                    "message",
                                     this.state.hariomMessage,
-                                    'max:150'
+                                    "max:150"
                                   )}
                                   <label
-                                    style={{ left: '15px' }}
-                                    htmlFor='address'
+                                    style={{ left: "15px" }}
+                                    htmlFor="address"
                                   >
                                     Say Something
                                   </label>
@@ -998,14 +1065,14 @@ class VideoDetailsPage extends Component {
                               </div>
                             </div>
                           )}
-                          <div className='col-md-12'>
+                          <div className="col-md-12">
                             <button
-                              type='submit'
-                              id='sendHariOmd'
-                              title='Send Hari om'
-                              className='btnhariom btn btn-small'
+                              type="submit"
+                              id="sendHariOmd"
+                              title="Send Hari om"
+                              className="btnhariom btn btn-small"
                             >
-                              Send <i className='material-icons right'></i>
+                              Send <i className="material-icons right"></i>
                             </button>
                           </div>
                         </div>
@@ -1015,7 +1082,7 @@ class VideoDetailsPage extends Component {
                 </div>
               </div>
             ) : (
-              ''
+              ""
             )}
           </main>
         </Layout>
