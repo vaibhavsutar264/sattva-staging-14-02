@@ -1,0 +1,28 @@
+.searchcards {
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 4px solid #d0ad73;
+    margin-bottom: 2rem;
+    text-align: center;
+    min-height: 180px;
+    display: grid;
+    place-content: center;
+}
+
+.searchcards:hover {
+    -webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%),
+        0 6px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -webkit-transition: all 0.55s ease-in-out;
+    transition: all 0.55s ease-in-out;
+}
+
+p.flow {
+    color: #5c1c72;
+}
+
+@media only screen and(max-width: 768px) {
+    .searchcards.quote-writer-text {
+        font-size: 22px !important;
+    }
+}
